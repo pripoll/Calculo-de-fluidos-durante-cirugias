@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Fluidos Quirúrgicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULADOR DE FLUIDOS PERIOPERATORIOS</h1>
+        <div class="input-group">
+            <label>Peso del Paciente (kg)</label>
+            <input type="number" id="weight" placeholder="Ej: 70">
+        </div>
+        <div class="input-group">
+            <label>Horas de Ayuno (NPO)</label>
+            <input type="number" id="npo" placeholder="Ej: 8">
+        </div>
+        <div class="input-group">
+            <label>Invasividad de la Cirugía</label>
+            <select id="surgery">
+                <option value="1">Superficial (0-1 ml/kg/hr) - Ej: Hernia, Quiste</option>
+                <option value="3" selected>Mínima (2-4 ml/kg/hr) - Ej: Apendicectomía</option>
+                <option value="5.5">Moderada (5-6 ml/kg/hr) - Ej: Colecistectomía</option>
+                <option value="9">Severa (8-10 ml/kg/hr) - Ej: Resección Intestinal</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Pérdida Sanguínea Estimada (ml)</label>
+            <input type="number" id="bloodLoss" value="0">
+        </div>
+        <div class="input-group">
+            <label>Tipo de Reposición Sanguínea</label>
+            <select id="fluidType">
+                <option value="3">Cristaloide (3:1)</option>
+                <option value="1">Coloide/Sangre (1:1)</option>
+            </select>
+        </div>
+        <button onclick="calculateFluids()">CALCULAR REPOSICIÓN</button>
+        <div id="results" class="results-area"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
