@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMA TÁCTICO DE FLUIDOS v3.0</title>
+    <title>Intraoperative Infusion Rate Navigator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-frame">
-        <div class="header-bar">
-            <span class="status-indicator">SISTEMA ACTIVO</span>
-            <h2>GESTIÓN DE FLUIDOS PERIOPERATORIOS</h2>
-        </div>
-        <div class="input-container">
-            <div class="input-block">
-                <label>PESO CORPORAL (KG)</label>
-                <input type="number" id="weight" step="0.1" placeholder="80.0">
+    <div class="calculator-frame">
+        <header class="main-header">
+            <h1>INTRAOPERATIVE INFUSION RATE NAVIGATOR</h1>
+            <p class="status-label">SURGICAL VOLUME ANALYSIS</p>
+        </header>
+        <div class="input-panel">
+            <div class="control-group">
+                <label>PATIENT WEIGHT (KG)</label>
+                <input type="number" id="weight" step="0.1" placeholder="70.0">
             </div>
-            <div class="input-block">
-                <label>HORAS DE AYUNO (NPO)</label>
+            <div class="control-group">
+                <label>FASTING DURATION (NPO HOURS)</label>
                 <input type="number" id="npo" step="1" placeholder="8">
             </div>
-            <div class="input-block">
-                <label>NIVEL DE INVASIVIDAD</label>
+            <div class="control-group">
+                <label>SURGICAL INVASIVENESS</label>
                 <select id="surgery">
                     <option value="1">SUPERFICIAL (0-1 ml/kg/h)</option>
-                    <option value="3" selected>MÍNIMA (2-4 ml/kg/h)</option>
-                    <option value="5.5">MODERADA (5-6 ml/kg/h)</option>
-                    <option value="9">SEVERA (8-10 ml/kg/h)</option>
+                    <option value="3" selected>MINIMAL (2-4 ml/kg/h)</option>
+                    <option value="5.5">MODERATE (5-6 ml/kg/h)</option>
+                    <option value="9">SEVERE (8-10 ml/kg/h)</option>
                 </select>
             </div>
         </div>
-        <button class="action-btn" onclick="runCalculation()">INICIAR CÁLCULO</button>
-        <div id="output-grid" class="output-grid"></div>
-        <div class="warning-section">
-            ADVERTENCIA: La pérdida sanguínea no se halla contemplada en estos cálculos. Deberá añadirse a lo que la app sugiere, ya sea en relación 1:1 con hemoderivados o coloides, o en relación 3:1 si se usaran cristaloides.
+        <button class="compute-btn" onclick="executeInfusionCalc()">EXECUTE INFUSION CALCULATION</button>
+        <div id="data-display" class="data-display"></div>
+        <div class="safety-notice">
+            WARNING: Blood loss is not included in these calculations. It must be added to the suggested amounts, either at a 1:1 ratio with blood products or colloids, or at a 3:1 ratio if crystalloids are used.
         </div>
+        <footer class="legal-footer">
+            <p>A tool designed by <a href="mailto:terapiaintensiva@gmail.com" class="author-link">Pablo I. Ripoll</a></p>
+            <p>Buenos Aires, Argentina - 2025</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
