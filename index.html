@@ -1,52 +1,41 @@
-He actualizado el diseño de la aplicación para que coincida con la estética de los calculadores balísticos que hemos desarrollado anteriormente, alejándome del esquema de colores de alto contraste que resultó insatisfactorio. Esta nueva interfaz utiliza una paleta de tonos carbón, grises tácticos y acentos en azul acero, lo que proporciona una visualización más profesional y equilibrada para el entorno de quirófano. Se han mantenido estrictamente los requerimientos funcionales de las seis horas de duración y la eliminación de la entrada de pérdida sanguínea en la lógica de cálculo, integrando la advertencia de seguridad requerida en la parte inferior del panel.
-
-El contenido del archivo index.html es el siguiente:
-
-HTML
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluid Management System - Tactical</title>
+    <title>SISTEMA TÁCTICO DE FLUIDOS v3.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <header class="app-header">
-            <div class="system-status">SYSTEM READY</div>
-            <h1>FLUID MANAGEMENT v2.0</h1>
-        </header>
-        
-        <div class="input-section">
-            <div class="field-group">
-                <label>PESO DEL PACIENTE (KG)</label>
-                <input type="number" id="weight" placeholder="0.0">
+    <div class="main-frame">
+        <div class="header-bar">
+            <span class="status-indicator">SISTEMA ACTIVO</span>
+            <h2>GESTIÓN DE FLUIDOS PERIOPERATORIOS</h2>
+        </div>
+        <div class="input-container">
+            <div class="input-block">
+                <label>PESO CORPORAL (KG)</label>
+                <input type="number" id="weight" step="0.1" placeholder="80.0">
             </div>
-            <div class="field-group">
-                <label>AYUNO ACUMULADO (HORAS NPO)</label>
-                <input type="number" id="npo" placeholder="0.0">
+            <div class="input-block">
+                <label>HORAS DE AYUNO (NPO)</label>
+                <input type="number" id="npo" step="1" placeholder="8">
             </div>
-            <div class="field-group">
-                <label>INVASIVIDAD QUIRÚRGICA</label>
+            <div class="input-block">
+                <label>NIVEL DE INVASIVIDAD</label>
                 <select id="surgery">
-                    <option value="1">MÍNIMA (Sencilla, ej: Quiste)</option>
-                    <option value="3" selected>LEVE (Abdominal baja, ej: Apéndice)</option>
-                    <option value="5.5">MODERADA (Ej: Colecistectomía)</option>
-                    <option value="9">SEVERA (Ej: Torácica / Intestinal)</option>
+                    <option value="1">SUPERFICIAL (0-1 ml/kg/h)</option>
+                    <option value="3" selected>MÍNIMA (2-4 ml/kg/h)</option>
+                    <option value="5.5">MODERADA (5-6 ml/kg/h)</option>
+                    <option value="9">SEVERA (8-10 ml/kg/h)</option>
                 </select>
             </div>
         </div>
-
-        <button class="calc-btn" onclick="calculateFluids()">EJECUTAR CÁLCULO</button>
-
-        <div id="results" class="display-grid">
-            </div>
-
-        <footer class="safety-footer">
-            <p>ADVERTENCIA: La pérdida sanguínea no se halla contemplada en estos cálculos. Deberá añadirse a lo que la app sugiere, ya sea en relación 1:1 con hemoderivados o coloides, o en relación 3:1 si se usaran cristaloides.</p>
-        </footer>
+        <button class="action-btn" onclick="runCalculation()">INICIAR CÁLCULO</button>
+        <div id="output-grid" class="output-grid"></div>
+        <div class="warning-section">
+            ADVERTENCIA: La pérdida sanguínea no se halla contemplada en estos cálculos. Deberá añadirse a lo que la app sugiere, ya sea en relación 1:1 con hemoderivados o coloides, o en relación 3:1 si se usaran cristaloides.
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
