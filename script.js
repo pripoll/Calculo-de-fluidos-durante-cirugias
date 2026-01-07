@@ -1,4 +1,4 @@
-// Intraoperative Infusion Rate Navigator - Final Sync v4.1
+// Intraoperative Infusion Rate Navigator - Sync v4.2
 function executeInfusionCalc() {
     const weight = parseFloat(document.getElementById('weight').value);
     const npo = parseFloat(document.getElementById('npo').value);
@@ -21,7 +21,15 @@ function executeInfusionCalc() {
         }
     }
 
-    let maintenance = weight + 40;
+    let maintenance;
+    if (weight > 40) {
+        maintenance = weight + 40;
+    } else {
+        if (weight <= 10) maintenance = weight * 4;
+        else if (weight <= 20) maintenance = 40 + (weight - 10) * 2;
+        else maintenance = 60 + (weight - 20) * 1;
+    }
+
     const deficit = maintenance * npo;
     const evapLoss = weight * evapRate;
 
