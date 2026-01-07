@@ -28,6 +28,7 @@ body {
     border-bottom: 2px solid var(--accent-blue);
     margin-bottom: 25px;
     padding-bottom: 12px;
+    text-align: center;
 }
 h1 {
     margin: 0;
@@ -35,11 +36,12 @@ h1 {
     font-weight: 500;
     letter-spacing: 0.5px;
 }
-.status-label {
-    margin: 4px 0 0 0;
-    font-size: 0.65rem;
-    color: var(--accent-blue);
-    font-weight: 800;
+.app-description {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 10px 0;
+    text-align: center;
 }
 .control-group {
     margin-bottom: 18px;
@@ -69,10 +71,20 @@ input, select {
     font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
-    transition: opacity 0.2s;
 }
-.compute-btn:hover {
-    opacity: 0.9;
+.reset-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-ui);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+.compute-btn:hover, .reset-btn:hover {
+    opacity: 0.8;
 }
 .data-display {
     margin-top: 25px;
@@ -84,6 +96,7 @@ input, select {
     background-color: #141619;
     padding: 14px;
     border-left: 2px solid var(--accent-blue);
+    text-align: center;
 }
 .output-card span {
     display: block;
