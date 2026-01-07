@@ -1,16 +1,27 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intraoperative Infusion Rate Navigator</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .app-description {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 10px 0;
+            text-align: justify;
+        }
+    </style>
 </head>
 <body>
     <div class="calculator-frame">
         <header class="main-header">
             <h1>INTRAOPERATIVE INFUSION RATE NAVIGATOR</h1>
-            <p class="status-label">SURGICAL VOLUME ANALYSIS</p>
+            <p class="app-description">
+                This tool is intended to calculate the infusion volume of isotonic fluids required to maintain normovolemia during surgery based on patient parameters and surgical invasiveness. It does not provide calculations for glucose or electrolyte requirements, which must be managed independently as additional supplements.
+            </p>
         </header>
         <div class="input-panel">
             <div class="control-group">
@@ -34,7 +45,7 @@
         <button class="compute-btn" onclick="executeInfusionCalc()">EXECUTE INFUSION CALCULATION</button>
         <div id="data-display" class="data-display"></div>
         <div class="safety-notice">
-            WARNING: Blood loss is not included in these calculations. It must be added to the suggested amounts, either at a 1:1 ratio with blood products or colloids, or at a 3:1 ratio if crystalloids are used.
+            WARNING: Blood loss is not included in these calculations. It must be added to the suggested amounts, either at a 1:1 ratio with blood products or coloids, or at a 3:1 ratio if crystalloids are used.
         </div>
         <footer class="legal-footer">
             <p>A tool designed by <a href="mailto:terapiaintensiva@gmail.com" class="author-link">Pablo I. Ripoll</a></p>
