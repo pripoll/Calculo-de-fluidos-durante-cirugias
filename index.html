@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intraoperative Infusion Rate Navigator</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .app-description {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="calculator-frame">
@@ -37,7 +46,7 @@
         <button class="reset-btn" onclick="resetCalculator()">RESET DATA</button>
         <div id="data-display" class="data-display"></div>
         <div class="safety-notice">
-            WARNING: Blood loss is not included in these calculations. It must be added to the suggested amounts, either at a 1:1 ratio with blood products or colloids, or at a 3:1 ratio if crystalloids are used.
+            WARNING: Blood loss is not included in these calculations. It must be added to the suggested amounts, either at a 1:1 ratio with blood products or colloids, or at a 3:1 ratio if ISOTONIC crystalloids are used.
         </div>
         <footer class="legal-footer">
             <p>A tool designed by <a href="mailto:terapiaintensiva@gmail.com" class="author-link">Pablo I. Ripoll</a></p>
