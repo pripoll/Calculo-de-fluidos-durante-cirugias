@@ -1,4 +1,4 @@
-// Intraoperative Infusion Rate Navigator - Adult Validations v3.6
+// Intraoperative Infusion Rate Navigator - Adult Validations v3.7
 function executeInfusionCalc() {
     const weight = parseFloat(document.getElementById('weight').value);
     const npo = parseFloat(document.getElementById('npo').value);
@@ -9,28 +9,18 @@ function executeInfusionCalc() {
         return;
     }
 
-    // Adult parameter validations
+    // Strict Adult Validations
     if (weight < 40 || weight > 160) {
-        if (!confirm('The entered weight (' + weight + ' kg) is outside the typical adult range (40-160 kg). Do you want to proceed with this calculation?')) {
-            return;
-        }
+        alert('CRITICAL ERROR: Weight (' + weight + ' kg) is outside the valid adult range (40-160 kg). Calculation halted.');
+        return;
     }
 
     if (npo > 12) {
-        if (!confirm('The fasting duration (' + npo + ' hours) exceeds the typical 12-hour limit for this calculator. Do you want to proceed?')) {
-            return;
-        }
+        alert('CRITICAL ERROR: Fasting duration (' + npo + ' hours) exceeds the 12-hour safety limit. Calculation halted.');
+        return;
     }
 
-    let maintenance;
-    if (weight > 40) {
-        maintenance = weight + 40;
-    } else {
-        if (weight <= 10) maintenance = weight * 4;
-        else if (weight <= 20) maintenance = 40 + (weight - 10) * 2;
-        else maintenance = 60 + (weight - 20) * 1;
-    }
-
+    let maintenance = weight + 40;
     const deficit = maintenance * npo;
     const evapLoss = weight * evapRate;
 
